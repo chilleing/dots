@@ -1,0 +1,159 @@
+/*
+                         ______                
+___      _______ _____  ____  /_______ ________
+__ | /| / /  __ `/_  / / /_  __ \  __ `/_  ___/
+__ |/ |/ // /_/ /_  /_/ /_  /_/ / /_/ /_  /    
+____/|__/ \__,_/ _\__, / /_.___/\__,_/ /_/     
+                 /____/  style configuration                    
+*/
+
+* {
+    font-family: 'Iosevka', 'Symbols Nerd Font';
+    font-size: 11px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 1.0);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 1;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock {
+    background-color: #9f9f9f;
+    color: #000000;
+    padding: 0px 10px 0px 10px;
+    margin: 5px;
+    border-radius: 2px;
+    
+}
+
+/* unused, i just combined the clocks lol*/
+#clock.date {
+    background-color: #4f4f4f;
+    color: #ffffff;
+    padding: 0px 10px 0px 10px;
+    margin: 5px;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+/* set the padding for elements on the right*/
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0px 10px 0px 10px;
+    color: #ffffff;
+}
+
+#battery.charging, #battery.plugged, #battery.full {
+    color: #4f4f4f;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    margin: 5px;
+    border-radius: 2px;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* tweaking the taskbar css so that
+it's rounded, has margins, and has different colors
+etc., etc. (i am not good at css) */
+
+#taskbar {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#taskbar button,
+#taskbar button.minimized,
+#taskbar button.maximized,
+#taskbar button.active,
+#taskbar button.fullscreen {
+    min-width: 50px;
+    padding: 2px 10px 2px 20px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-left: 4px;
+    
+}
+
+#taskbar button.active {
+    background-color: #2f2f2f;
+}
+
+#taskbar button {
+    background-color: #0f0f0f;
+    color: #7f7f7f;
+}
+
+#taskbar button:hover,
+#taskbar button.minimized:hover,
+#taskbar button.active:hover,
+#taskbar button.maximized:hover {
+    color: #ffffff;
+}
+
+#taskbar button.minimized {
+    color: #4f4f4f;
+    background-color: #000000;
+}
+
+#taskbar button.active {
+    color: #ffffff;
+}
+
+#pulseaudio.muted {
+    color: #4f4f4f;
+}
+
+#idle_inhibitor {
+    color: #4f4f4f;
+}
+
+#idle_inhibitor.activated {
+    color: #ffffff;
+}
+
+/* the funky menu icon
+to be honest it doesn't even do anything
+it just looks cool ;-) */
+
+#custom-menu {
+    padding: 0px 20px 0px 25px;
+}
