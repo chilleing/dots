@@ -1,0 +1,128 @@
+//
+// waybar configuration
+// (it's just the example config but I changed some things lol)
+//
+
+{
+    "position": "bottom", 
+    "height": 32, 
+    "spacing": 4,
+
+    "modules-left": ["custom/menu", "wlr/taskbar"],
+    //"modules-center": [""],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock"],
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    
+    "wlr/taskbar": {
+    	"format": "{title:.7}",
+    	"on-click": "minimize-raise",
+    },
+    
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format": "{:%a, %b %d %I:%M}",
+	"format-alt": "{:%I:%M:%S %p}",
+    },
+    
+    "clock#date": {
+	"format": "{:%a, %b %d}"
+    },
+    
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    
+    "memory": {
+        "format": " {}%"
+    },
+    
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "",
+        "format-plugged": "",
+        "format-alt": "{icon}",
+        //"format-good": ""
+        //"format-full": "",
+        "format-icons": ["", "", "", "", ""],
+    },
+
+    "network": {
+        "format-wifi": " {ipaddr}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    
+    "pulseaudio": {
+        // "scroll-step": 1
+        "format": "{icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "ﱝ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["奄", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    
+    "custom/menu": {
+    	"format": "",
+    	"on-click": "~/.config/rofi/launchers/text/launcher.sh",
+    },
+}
